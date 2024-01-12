@@ -1,0 +1,122 @@
+<?php
+
+namespace App\Services;
+
+use App\Repositories\{{ modelName }}Repository;
+use Exception;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use InvalidArgumentException;
+
+class {{ modelName }}Service
+{
+    /**
+     * @var ${{ modelNameLC }}Repository
+     */
+    protected ${{ modelNameLC }}Repository;
+
+    /**
+     * RoofService constructor.
+     *
+     * @param DefaultRepository ${{ modelNameLC }}Repository
+     */
+    public function __construct(DefaultRepository ${{ modelNameLC }}Repository)
+    {
+        $this->{{ modelNameLC }}Repository = ${{ modelNameLC }}Repository;
+    }
+
+    /**
+     * Delete default by id.
+     *
+     * @param $id
+     * @return String
+     */
+    public function deleteById($id)
+    {
+        DB::beginTransaction();
+
+        try {
+            ${{ modelNameLC }} = $this->{{ modelNameLC }}Repository->delete($id);
+
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::info($e->getMessage());
+
+            throw new InvalidArgumentException(__('messages.unableToDelete'));
+        }
+
+        DB::commit();
+
+        return ${{ modelNameLC }};
+
+    }
+
+    /**
+     * Get all defaults.
+     *
+     * @return Object
+     */
+    public function getAll()
+    {
+        return $this->{{ modelNameLC }}Repository->getAll();
+    }
+
+    /**
+     * Get default by id.
+     *
+     * @param $id
+     * @return Object
+     */
+    public function getById($id)
+    {
+        return $this->{{ modelNameLC }}Repository->getById($id);
+    }
+
+    /**
+     * Update roof data
+     * Store to DB if there are no errors.
+     *
+     * @param array $data
+     * @return String
+     */
+    public function updateDefault($data, $id)
+    {
+        DB::beginTransaction();
+
+        try {
+            ${{ modelNameLC }} = $this->{{ modelNameLC }}Repository->update($data, $id);
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::info($e->getMessage());
+
+            throw new InvalidArgumentException(__('messages.unableToUpdate'));
+        }
+
+        DB::commit();
+
+        return ${{ modelNameLC }};
+    }
+
+    /**
+     *
+     * @param array $data
+     * @return String
+     */
+    public function saveAccessoryData($data)
+    {
+        DB::beginTransaction();
+
+        try {
+            ${{ modelNameLC }} = $this->{{ modelNameLC }}Repository->save($data);
+        } catch (Exception $e) {
+            DB::rollBack();
+            Log::info($e->getMessage());
+
+            throw new InvalidArgumentException(__('messages.unableToSave'));
+        }
+
+        DB::commit();
+       
+        return ${{ modelNameLC }};
+    }
+}

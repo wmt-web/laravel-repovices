@@ -1,0 +1,94 @@
+<?php
+
+namespace App\Repositories;
+
+use App\Models\{{ modelName }};
+
+class {{ modelName }}Repository
+{
+    /**
+     * @var {{ modelName }}
+     */
+    protected ${{ modelNameLC }};
+
+    /**
+     * {{ modelName }}Repository constructor.
+     *
+     * @param {{ modelName }} ${{ modelNameLC }}
+     */
+    public function __construct({{ modelName }} ${{ modelNameLC }})
+    {
+        $this->{{ modelNameLC }} = ${{ modelNameLC }};
+    }
+
+    /**
+     * Get all defaultModels.
+     *
+     * @return {{ modelName }} ${{ modelNameLC }}
+     */
+    public function getAll()
+    {
+        return $this->{{ modelNameLC }}
+            ->get();
+    }
+
+    /**
+     * Get defaultModel by id
+     *
+     * @param $id
+     * @return mixed
+     */
+    public function getById($id)
+    {
+        return $this->{{ modelNameLC }}
+            ->find($id);
+    }
+
+    /**
+     * Save {{ modelName }}
+     *
+     * @param $data
+     * @return {{ modelName }}
+     */
+    public function save($data)
+    {
+        ${{ modelNameLC }} = new $this->{{ modelNameLC }};
+
+        ${{ modelNameLC }} = ${{ modelNameLC }}->create([
+            
+        ]);
+
+        return ${{ modelNameLC }}->fresh();
+    }
+
+    /**
+     * Update {{ modelName }}
+     *
+     * @param $data
+     * @return {{ modelName }}
+     */
+    public function update($data, $id)
+    {
+        ${{ modelNameLC }} = $this->{{ modelNameLC }}->find($id);
+
+        ${{ modelNameLC }}->update([
+            
+        ]);
+
+        return ${{ modelNameLC }};
+    }
+
+    /**
+     * Update {{ modelName }}
+     *
+     * @param $data
+     * @return {{ modelName }}
+     */
+    public function delete($id)
+    {
+        ${{ modelNameLC }} = $this->{{ modelNameLC }}->find($id);
+        ${{ modelNameLC }}->delete();
+
+        return ${{ modelNameLC }};
+    }
+}
