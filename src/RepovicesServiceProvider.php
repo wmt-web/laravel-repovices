@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Repovice;
+namespace Laravel\Repovices;
 
 class RepovicesServiceProvider extends \Illuminate\Support\ServiceProvider
 {

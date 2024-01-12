@@ -9,7 +9,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Wmt\\LaravelRepovices\\": "src/"
+            "Laravel\\Repovices\\": "src/"
         }
     },
     "authors": [
@@ -27,7 +27,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Laravel\\Repovice\\RepovicesServiceProvider"
+                "Laravel\\Repovices\\RepovicesServiceProvider"
             ]
         }
     }

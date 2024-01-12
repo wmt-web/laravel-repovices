@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Repovice\Console;
+namespace Laravel\Repovices\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Config;
