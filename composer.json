@@ -1,5 +1,5 @@
 {
-    "name": "wmt/laravel-repovices",
+    "name": "wmt-web-pruthvip/laravel-repovices",
     "description": "Create repositories and services of your model dynamically",
     "type": "library",
     "require": {
