@@ -4,7 +4,7 @@
     "type": "library",
     "require": {
         "php": "^8.2",
-        "illuminate/console": "^10.39"
+        "illuminate/console": "^8.0|^9.0|^10.0"
     },
     "license": "MIT",
     "autoload": {
