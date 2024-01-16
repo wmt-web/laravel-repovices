@@ -39,11 +39,11 @@ class RepoviceConsole extends Command
             }
 
             $packageDirectory = dirname(__DIR__, 2); 
-            $repositoryStub = file_get_contents($packageDirectory.'/stubs/app/Repositories/DefaultRepository.stub');
+            $repositoryStub = file_get_contents($packageDirectory.'/stubs/Repositories/DefaultRepository.stub');
             $repositoryContent = str_replace('{{ modelName }}', $modelName, $repositoryStub);
             $repositoryContent = str_replace('{{ modelNameLC }}', lcfirst($modelName), $repositoryContent);
 
-            $serviceStub = file_get_contents($packageDirectory.'/stubs/app/Services/DefaultService.stub');
+            $serviceStub = file_get_contents($packageDirectory.'/stubs/Services/DefaultService.stub');
             $serviceContent = str_replace('{{ modelName }}', $modelName, $serviceStub);
             $serviceContent = str_replace('{{ modelNameLC }}', lcfirst($modelName), $serviceContent);
 
