@@ -18,9 +18,9 @@ class {{ modelName }}Service
     /**
      * RoofService constructor.
      *
-     * @param DefaultRepository ${{ modelNameLC }}Repository
+     * @param {{ modelName }}Repository ${{ modelNameLC }}Repository
      */
-    public function __construct(DefaultRepository ${{ modelNameLC }}Repository)
+    public function __construct({{ modelName }}Repository ${{ modelNameLC }}Repository)
     {
         $this->{{ modelNameLC }}Repository = ${{ modelNameLC }}Repository;
     }
