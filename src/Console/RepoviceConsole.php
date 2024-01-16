@@ -56,7 +56,16 @@ class RepoviceConsole extends Command
             $serviceContent = str_replace('{{ modelName }}', $modelName, $serviceStub);
             $serviceContent = str_replace('{{ modelNameLC }}', lcfirst($modelName), $serviceContent);
 
+            $repo_directory = Config::get('repovice.repository_path');
+            if(!is_dir($repo_directory)){
+                mkdir($repo_directory, 0777, true);
+            }
             $repositoryPath = Config::get('repovice.repository_path')."/{$modelName}Repository.php";
+
+            $service_directory = Config::get('repovice.service_path');
+            if(!is_dir($service_directory)){
+                mkdir($service_directory, 0777, true);
+            }
             $servicePath = Config::get('repovice.service_path')."/{$modelName}Service.php";
 
             file_put_contents($repositoryPath, $repositoryContent);

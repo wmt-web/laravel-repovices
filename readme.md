@@ -5,7 +5,7 @@ This package streamlines the creation of repositories and services in Laravel ap
 ## Installation
 
 ```bash
-composer require wmt-web-pruthvip/laravel-repovices
+composer require wmt-web/laravel-repovices
 ```
 
 Copy the package config to your local config with the publish command::
@@ -25,4 +25,3 @@ This will create a new files in your provided directory for the repository and s
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE) for more information.
-```
