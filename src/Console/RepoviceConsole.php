@@ -65,4 +65,25 @@ class RepoviceConsole extends Command
             $this->info("Repository and service classes generated successfully for {$modelName}.");
         }
     }
+
+    /**
+     * Convert string to camel case
+     *
+     * @param  string $string
+     * @return string
+     */
+    protected function toCamelCase($text)
+    {
+        if (empty($text)) {
+            return $text;
+        }
+
+        $words = explode('_', $text);
+
+        if (count($words) === 1) {
+            return $text;
+        }
+
+        return lcfirst(implode('', array_map('ucfirst', $words)));
+    }
 }
