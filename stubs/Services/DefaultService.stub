@@ -79,7 +79,7 @@ class {{ modelName }}Service
      * @param array $data
      * @return String
      */
-    public function updateDefault($data, $id)
+    public function update($data, $id)
     {
         DB::beginTransaction();
 
@@ -102,7 +102,7 @@ class {{ modelName }}Service
      * @param array $data
      * @return String
      */
-    public function saveAccessoryData($data)
+    public function save($data)
     {
         DB::beginTransaction();
 
