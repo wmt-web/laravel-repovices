@@ -12,7 +12,7 @@ class RepoviceConsole extends Command
      *
      * @var string
      */
-    protected $signature = 'repovice:create {modelName: Name of the model for repository and service create}';
+    protected $signature = 'repovice:create {modelName : Name of the model for repository and service create}';
 
     /**
      * The console command description.
