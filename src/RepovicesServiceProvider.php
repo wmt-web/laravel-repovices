@@ -2,6 +2,8 @@
 
 namespace Laravel\Repovices;
 
+use Laravel\Repovices\Console\RepoviceConsole;
+
 class RepovicesServiceProvider extends \Illuminate\Support\ServiceProvider
 {
     /**
@@ -23,7 +25,13 @@ class RepovicesServiceProvider extends \Illuminate\Support\ServiceProvider
     public function boot()
     {
         $configPath = __DIR__ . '/../config/repovice.php';
-        $this->publishes([$configPath => $this->getConfigPath()], 'config');
+        $this->publishConfig($configPath);
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                RepoviceConsole::class,
+            ]);
+        }
     }
 
     /**
@@ -43,6 +51,6 @@ class RepovicesServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     protected function publishConfig($configPath)
     {
-        $this->publishes([$configPath => config_path('repovice.php')], 'config');
+        $this->publishes([$configPath => $this->getConfigPath()], 'config');
     }
 }
