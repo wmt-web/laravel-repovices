@@ -55,7 +55,7 @@ class {{ modelName }}Repository
         ${{ modelNameLC }} = new $this->{{ modelNameLC }};
 
         ${{ modelNameLC }} = ${{ modelNameLC }}->create([
-            
+            // Add your model fields to create data
         ]);
 
         return ${{ modelNameLC }}->fresh();
@@ -72,7 +72,7 @@ class {{ modelName }}Repository
         ${{ modelNameLC }} = $this->{{ modelNameLC }}->find($id);
 
         ${{ modelNameLC }}->update([
-            
+            // Add your model fields to update data
         ]);
 
         return ${{ modelNameLC }};
