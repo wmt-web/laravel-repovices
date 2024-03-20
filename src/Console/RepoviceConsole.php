@@ -68,6 +68,14 @@ class RepoviceConsole extends Command
             }
             $servicePath = Config::get('repovice.service_path')."/{$modelName}Service.php";
 
+            if (!file_exists(Config::get('repovice.repository_path'))) {
+                mkdir(Config::get('repovice.repository_path'), 0777, true);
+            }
+
+            if (!file_exists(Config::get('repovice.service_path'))) {
+                mkdir(Config::get('repovice.service_path'), 0777, true);
+            }
+
             file_put_contents($repositoryPath, $repositoryContent);
             file_put_contents($servicePath, $serviceContent);
 
